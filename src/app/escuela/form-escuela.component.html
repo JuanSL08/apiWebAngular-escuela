@@ -1,0 +1,71 @@
+<br>
+<div class="container col-md-7"> 
+    <div class="card">
+      <h4 class="card-header"><strong>{{ titulo }}</strong></h4>              
+      <div class="card-body">
+        <form>   
+        <!--
+          <div th:if="${#fields.hasErrors('*')}"class='alert alert-danger' role='alert'>
+            Por favor corrija los siguientes errores:
+            <ul>
+                <li th:each="err : ${#fields.errors('*')}" th:text="${err}"/>
+            </ul>
+          </div>
+              -->     
+          <table class="table table-striped">
+            <tr>
+                <td style="vertical-align:middle;"><a>Nombre:</a></td>
+                <td style="vertical-align:middle;">
+                    <input type="hidden" [(ngModel)]="escuela.idEscuela" id="idEscuela" name="idEscuela">
+                    <input type="text" class="form-control" [(ngModel)]="escuela.nombre" id="nombre" name="nombre" placeholder="Nombre de la escuela" required="required">
+                </td>
+              </tr>
+              <tr>
+                <td style="vertical-align:middle;"><a>Facultad:</a></td>
+                <td style="vertical-align:middle;">
+                    <select [(ngModel)]="idFacultad" id="facultad" name="facultad" class="custom-select">
+                        <option *ngFor = "let fac of arrFacultades" value="{{fac.idFacultad}}" text="{{fac.descFacultad}}"></option>
+                    </select>
+                </td>
+              </tr>
+              <tr>
+                <td style="vertical-align:middle;"><a>Alumnado:</a></td>
+                <td style="vertical-align:middle;">
+                   <input type="text" class="form-control" [(ngModel)]="escuela.cantAlumnos" id="cantAlumnos" name="cantAlumnos" placeholder="Cantidad de alumnos" required="required">
+                </td>
+              </tr>
+              <tr>
+                <td style="vertical-align:middle;"><a>Recurso Fiscal:</a></td>
+                <td style="vertical-align:middle;">
+                   <input type="text" class="form-control" [(ngModel)]="escuela.recursoFiscal" id="recursoFiscal" name="recursoFiscal" placeholder="Recurso Fiscal" required="required">
+                </td>
+              </tr>
+              <tr>
+                <td style="vertical-align:middle;"><a>Licenciada:</a></td>
+                <td style="vertical-align:middle;">
+                   <input type="text" class="form-control" [(ngModel)]="escuela.licenciada" id="licenciada" name="licenciada" placeholder="Licenciada" required="required">
+                </td>
+              </tr>
+              <tr>
+                <td style="vertical-align:middle;"><a>Clasificación:</a></td>
+                <td style="vertical-align:middle;">
+                   <input type="text" class="form-control" [(ngModel)]="escuela.clasificacion" id="clasificacion" name="clasificacion" placeholder="Clasificación" required="required">
+                </td>
+              </tr>
+              <tr>
+                <td style="vertical-align:middle;"><a>Fecha de registro:</a></td>
+                <td style="vertical-align:middle;">
+                  <input type="text" class="form-control" [(ngModel)]="escuela.fechaRegistro" name="fechaRegistro" id="fechaRegistro" placeholder="Fecha de Registro" required="required">
+                </td>
+              </tr>
+            
+            <tr class="text-center">
+              <td colspan="2">
+                <button type="submit" class="btn btn-secondary" (click)='create()' disabled="true">Agregar</button>
+              </td>
+            </tr>
+          </table>
+        </form>
+      </div>
+    </div>
+  </div> <!-- /container -->

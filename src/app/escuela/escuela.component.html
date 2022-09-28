@@ -1,0 +1,67 @@
+<br>
+<div class="container-field">
+    <div class="card">
+        <h4 class="card-header text-center"><strong>{{titulo}}</strong></h4>              
+        <div class="card-body">
+            <a class="btn btn-primary" [routerLink]="['/escuelas/form']" title="Crear nueva Escuela" role="button">
+                <i class="fas fa-file" aria-hidden="true"></i> Nueva
+            </a>              
+            <hr>
+            <table class="table table-hover">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Cant. de Alumnos</th>     
+                        <th scope="col">Recurso Fiscal</th>
+                        <th scope="col">Licenciada</th>   
+                        <th scope="col">Clasificación</th>  
+                        <th scope="col">Fecha de Registro</th>
+                        <th scope="col">Facultad</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor = "let esc of arrEscuelas">
+                        <td>{{ esc.idEscuela }}</td>
+                        <td>{{ esc.nombre }}</td>                  
+                        <td>{{ esc.cantAlumnos }}</td>
+                        <td>{{ esc.recursoFiscal }}</td>
+                        <td>
+                            <a *ngIf="esc.licenciada == 'Y'">SÍ</a>
+                            <a *ngIf="esc.licenciada == 'N'">NO</a>
+                        </td>                  
+                        <td>{{ esc.clasificacion }}</td>
+                        <td>{{ esc.fechaRegistro }}</td>                  
+                        <td>{{ esc.facultad.descFacultad }}</td>
+                        <td>
+                            <a class="btn btn-secondary btn-sm" role="button" title="Editar el registro." disabled="true">
+                                <i class="fas fa-pencil-alt" aria-hidden="true" disabled="true"></i>
+                            </a>
+                            <a> </a>
+                            <a class="btn btn-secondary btn-sm" onclick="return confirm('¿Estás seguro?')"  
+                                                role="button" title="Eliminar el registro.">
+                                <i class="fas fa-trash" aria-hidden="true"></i>
+                            </a>
+                        </td>
+                    </tr>                               
+                </tbody>
+            </table>
+            <div class="text-center">
+                <br>
+                <h6>{{ aclaracion }}</h6>
+                <br>
+                <a class="btn btn-info" href="{{ reporte_escuelas }}" target="_blank" title="Ver reporte" role="button">
+                    <i class="fas fa-file" aria-hidden="true"></i> Reporte de Escuelas
+                </a>&nbsp;
+                <a class="btn btn-info" href="{{ reporte_escuelas_alumnado }}" target="_blank" title="Ver reporte" role="button">
+                    <i class="fas fa-file" aria-hidden="true"></i> Reporte por Alumnado
+                </a>&nbsp;
+                <a class="btn btn-info" href="{{ reporte_escuelas_recursofiscal }}" target="_blank" title="Ver reporte" role="button">
+                    <i class="fas fa-file" aria-hidden="true"></i> Reporte por Recurso Fiscal
+                </a>&nbsp;
+            </div>
+        </div>
+    </div>
+</div> <!-- /container -->
+<br>
